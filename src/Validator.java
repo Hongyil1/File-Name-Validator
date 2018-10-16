@@ -12,9 +12,16 @@ public class Validator {
 
         while(!fileLocation.equals("exit")){
             // Check whether the file exists
-            File f = new File(fileLocation);
+            File f = new File(fileLocation.trim());
             if(f.exists() && !f.isDirectory()){
                 System.out.println("File exist.");
+                String fileName= f.getName();
+                System.out.println(fileName);
+
+                // get file extension
+                String[] temList = fileName.split(".");
+                String fileExtension = temList[-1]; // haven't finish
+
             } else {
                 System.out.println("The file doesn't exist.");
             }
