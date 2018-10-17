@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Validator {
@@ -16,12 +17,23 @@ public class Validator {
             if(f.exists() && !f.isDirectory()){
                 System.out.println("File exist.");
                 String fileName= f.getName();
-                System.out.println(fileName);
+                System.out.println("File Name: " + fileName);
 
                 // get file extension
-                String[] temList = fileName.split(".");
-                String fileExtension = temList[-1]; // haven't finish
-
+                String[] splitList = fileName.split("\\.");
+                if(splitList.length <= 1){
+                    System.out.println("The file doesn't have extension.");
+                }else {
+                    System.out.println("splitList: " + Arrays.toString(splitList));
+                    String fileExtension = splitList[splitList.length - 1]; // haven't finish
+                    System.out.println("fileExtension: " + fileExtension);
+                    if(Validator.extensionCheck(fileExtension)){
+                        System.out.println("correct file extension.");
+                    }else {
+                        System.out.printf("File '%s' failed validation.\n", fileName);
+                        System.out.printf("Invalid File format.Expected 'csv' found '%s'\n", fileExtension);
+                    }
+                }
             } else {
                 System.out.println("The file doesn't exist.");
             }
@@ -31,6 +43,15 @@ public class Validator {
             fileLocation = scanner.nextLine();
         }
 
+    }
+
+    public static boolean extensionCheck(String fileExtension){
+
+        if(fileExtension.equals("csv")){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }
