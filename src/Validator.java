@@ -1,4 +1,6 @@
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -12,6 +14,7 @@ public class Validator {
     private String fileSequence;
     private String fileDate;
     private static String[] portList = new String[] {"A", "B", "C"};
+    private static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
     public static void main(String args[]){
 
@@ -62,6 +65,7 @@ public class Validator {
 
     public Validator(String fileName){
         this.fileName = fileName;
+        Validator.format.setLenient(false);
     }
 
     private boolean extensionCheck(String fileExtension){
@@ -81,16 +85,29 @@ public class Validator {
     }
 
     private boolean portfolioCheck(String filePorfolio){
-        for(int i =0; i< Validator.portList.length; i++){
-            if(Validator.portList[i].equals(filePorfolio)){
-                return true;
-            }
+        if(filePorfolio.matches("[ABC]")){
+            return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
 
-    private boolean dateCheck(String date){
-        return false;
-    }
+    private boolean dateCheck(String fileDate){
+        if(fileDate.matches("[0-9]{8}")){
+            String dd = fileDate.substring(0,2);
+            String mm = fileDate.substring(2,4);
+            String yyyy = fileDate.substring(4,8);
+            String formatDate = dd+"-"+mm+"-"+yyyy;
 
+            try{
+                Validator.format.parse(formatDate);
+                return true;
+            }catch (ParseException ex){
+                return false;
+            }
+        }else {
+            return false;
+        }
+    }
 }
