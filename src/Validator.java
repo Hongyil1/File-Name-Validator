@@ -1,7 +1,6 @@
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Validator {
@@ -12,7 +11,6 @@ public class Validator {
     private String filePortfolio;
     private String fileSequence;
     private String fileDate;
-    private static String[] portList = new String[] {"A", "B", "C"};
     private static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
     public static void main(String args[]){
@@ -26,46 +24,39 @@ public class Validator {
 
             // Check whether the file exists
             File f = new File(fileLocation.trim());
-            if(f.exists() && !f.isDirectory()){
-                String fileName= f.getName();
-                Validator validator = new Validator(fileName);
+            String fileName= f.getName();
+            Validator validator = new Validator(fileName);
 
-                // get file extension
-                String[] splitList = fileName.split("\\.");
-                validator.fileExtension = splitList[splitList.length - 1];
-                if(splitList.length != 2){
+            if(validator.fileLocationCheck(f)){
+                if(validator.fileNameCheck(validator.fileName)){
+                    String[] splitList = fileName.split("\\.");
+                    validator.fileExtension = splitList[splitList.length - 1];
+                    String[] nameList = splitList[0].split("_");
+                    validator.filePrefix = nameList[0];
+                    validator.filePortfolio = nameList[1];
+                    validator.fileDate = nameList[2];
+                    if(nameList.length == 4) {validator.fileSequence = nameList[3];}
+                    if(!validator.portfolioCheck(validator.filePortfolio)){
+                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                        System.out.printf("PortfolioCode should be A/B/C found %s.\n", validator.filePortfolio);
+                    }else if(!validator.dateCheck(validator.fileDate)){
+                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                        System.out.println("Valuation Date is not a valid date format 'ddmmyyyy'.\n");
+                    }else if(!validator.prefixCheck(validator.filePrefix)){
+                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                        System.out.printf("Prefix for the file should be 'Test' found '%s'.\n", validator.filePrefix);
+                    }else if(!validator.extensionCheck(validator.fileExtension)){
+                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                        System.out.printf("Invalid File format.Expected 'csv' found '%s'.\n", validator.fileExtension);
+                    } else if(!validator.sequenceCheck(validator.fileSequence)){
+                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                        System.out.printf("Sequence number should be 2-digit number found '%s'.\n", validator.fileSequence);
+                    } else {
+                        System.out.printf("File '%s' passed validation.\n", validator.fileName);
+                    }
+                } else {
                     System.out.printf("File '%s' failed validation.\n", validator.fileName);
                     System.out.printf("File format should be‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv'\n");
-                } else {
-                    String[] nameList = splitList[0].split("_");
-                    System.out.println("nameList: " + Arrays.toString(nameList));
-                    if(nameList.length == 3 || nameList.length == 4){
-                        validator.filePrefix = nameList[0];
-                        validator.filePortfolio = nameList[1];
-                        validator.fileDate = nameList[2];
-                        if(nameList.length == 4) {validator.fileSequence = nameList[3];}
-                        System.out.println("prefix: " + validator.filePrefix + "; portfolio: " + validator.filePortfolio
-                                + "; date: " + validator.fileDate + "; seq: " + validator.fileSequence);
-                        if(!validator.portfolioCheck(validator.filePortfolio)){
-                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
-                            System.out.printf("PortfolioCode should be A/B/C found %s.\n", validator.filePortfolio);
-                        }else if(!validator.dateCheck(validator.fileDate)){
-                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
-                            System.out.println("Valuation Date is not a valid date format 'ddmmyyyy'.\n");
-                        }else if(!validator.prefixCheck(validator.filePrefix)){
-                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
-                            System.out.printf("Prefix for the file should be 'Test' found '%s'.\n", validator.filePrefix);
-                        }else if(!validator.extensionCheck(validator.fileExtension)){
-                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
-                            System.out.printf("Invalid File format.Expected 'csv' found '%s'.\n", validator.fileExtension);
-                        }else {
-                            System.out.printf("File '%s' passed validation.\n", validator.fileName);
-                        }
-
-                    } else {
-                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
-                        System.out.printf("File format should be‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv'\n");
-                    }
                 }
             } else {
                 System.out.println("The file doesn't exist or the given location is a folder.");
@@ -82,7 +73,29 @@ public class Validator {
         Validator.format.setLenient(false);
     }
 
-    private boolean extensionCheck(String fileExtension){
+    public boolean fileLocationCheck(File f){
+        if(f.exists() && !f.isDirectory()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean fileNameCheck(String fileName){
+        String[] splitList = fileName.split("\\.");
+        if(splitList.length != 2){
+            return false;
+        }else {
+            String[] nameList = splitList[0].split("_");
+            if(nameList.length == 3 || nameList.length == 4){
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
+
+    public boolean extensionCheck(String fileExtension){
         if(fileExtension.equals("csv")){
             return true;
         }else {
@@ -90,7 +103,7 @@ public class Validator {
         }
     }
 
-    private boolean prefixCheck(String filePrefix){
+    public boolean prefixCheck(String filePrefix){
         if(filePrefix.equals("Test")){
             return true;
         }else{
@@ -98,7 +111,7 @@ public class Validator {
         }
     }
 
-    private boolean portfolioCheck(String filePorfolio){
+    public boolean portfolioCheck(String filePorfolio){
         if(filePorfolio.matches("[ABC]")){
             return true;
         }
@@ -107,7 +120,7 @@ public class Validator {
         }
     }
 
-    private boolean dateCheck(String fileDate){
+    public boolean dateCheck(String fileDate){
         if(fileDate.matches("[0-9]{8}")){
             String dd = fileDate.substring(0,2);
             String mm = fileDate.substring(2,4);
@@ -125,7 +138,7 @@ public class Validator {
         }
     }
 
-    private boolean sequenceCheck(String fileSequence){
+    public boolean sequenceCheck(String fileSequence){
         if(fileSequence == null || fileSequence.matches("[0-9]{2}")){
             return true;
         }else {
