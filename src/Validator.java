@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ public class Validator {
     private String filePortfolio;
     private String fileSequence;
     private String fileDate;
+    private static String[] portList = new String[] {"A", "B", "C"};
 
     public static void main(String args[]){
 
@@ -79,6 +81,11 @@ public class Validator {
     }
 
     private boolean portfolioCheck(String filePorfolio){
+        for(int i =0; i< Validator.portList.length; i++){
+            if(Validator.portList[i].equals(filePorfolio)){
+                return true;
+            }
+        }
         return false;
     }
 
