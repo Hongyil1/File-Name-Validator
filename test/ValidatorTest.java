@@ -1,7 +1,5 @@
 import org.junit.Test;
-
 import java.io.File;
-
 import static org.junit.Assert.*;
 
 public class ValidatorTest {
@@ -9,9 +7,16 @@ public class ValidatorTest {
     @Test
     public void testFileLocationCheck(){
         Validator val = new Validator("test");
-        File f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test");
-        boolean result1 = val.fileLocationCheck(f);
-        assertEquals(false, result1);
+        File f;
+
+        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test");
+        assertEquals(false, val.fileLocationCheck(f));
+
+        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\csv");
+        assertEquals(true, val.fileLocationCheck(f));
+
+        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\Test_A_07121987.csv");
+        assertEquals(true, val.fileLocationCheck(f));
     }
 
     @Test
