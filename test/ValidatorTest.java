@@ -1,5 +1,7 @@
 import org.junit.Test;
 import java.io.File;
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class ValidatorTest {
@@ -21,6 +23,19 @@ public class ValidatorTest {
 
     @Test
     public void testFileNameCheck(){
+        Validator val = new Validator("test");
+
+        assertEquals(false, val.fileNameCheck("abc.tar.gz"));
+        assertEquals(false, val.fileNameCheck("Test_A_07121987."));
+        assertEquals(false, val.fileNameCheck(".Test_A_07121987"));
+        assertEquals(false, val.fileNameCheck("Test_A_07121987_01_aaa.csv"));
+        assertEquals(false, val.fileNameCheck("Test_A.csv"));
+        assertEquals(false, val.fileNameCheck("Test_A_07121987_01_aaa.csv"));
+        assertEquals(false, val.fileNameCheck("csv"));
+        assertEquals(false, val.fileNameCheck("_TestA_07121987.csv"));
+        assertEquals(false, val.fileNameCheck("Test_A_07121987_.csv"));
+        assertEquals(true, val.fileNameCheck("Test_A_07121987_01.csv"));
+        assertEquals(true, val.fileNameCheck("Test_A_07121987.csv"));
 
     }
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e6431bc-c177-447d-b171-7a822532d891" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Validator.java" afterPath="$PROJECT_DIR$/src/Validator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/ValidatorTest.java" afterPath="$PROJECT_DIR$/test/ValidatorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -13,52 +14,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.63177085">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="Validator.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Validator.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ValidatorTest.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/test/ValidatorTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Validator.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Validator.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="351">
-                  <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="Validator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Validator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValidatorTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/ValidatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="37" column="69" lean-forward="true" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -157,7 +138,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ValidatorTest.testFileLocationCheck">
+  <component name="RunManager" selected="JUnit.ValidatorTest.testFileNameCheck">
     <configuration name="Validator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Validator" />
@@ -180,6 +161,26 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ValidatorTest" />
       <option name="METHOD_NAME" value="testFileLocationCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="ValidatorTest.testFileNameCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="File-Name-Validator" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ValidatorTest" />
+      <option name="METHOD_NAME" value="testFileNameCheck" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -273,14 +274,16 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Validator" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.ValidatorTest.testFileLocationCheck" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ValidatorTest.testFileNameCheck" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ValidatorTest.testFileLocationCheck" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Validator" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ValidatorTest.testFileNameCheck" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ValidatorTest.testFileLocationCheck" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Validator" />
       </list>
     </recent_temporary>
   </component>
@@ -298,23 +301,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ValidatorTest_testFileLocationCheck - 2018.10.19 at 00h 46m 53s.xml">
-      <configuration name="ValidatorTest.testFileLocationCheck" configurationId="JUnit" />
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 01h 48m 28s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest_testFileLocationCheck - 2018.10.19 at 00h 47m 09s.xml">
-      <configuration name="ValidatorTest.testFileLocationCheck" configurationId="JUnit" />
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 01h 52m 18s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest_testFileLocationCheck - 2018.10.19 at 00h 47m 25s.xml">
-      <configuration name="ValidatorTest.testFileLocationCheck" configurationId="JUnit" />
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 01h 58m 06s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest_testFileLocationCheck - 2018.10.19 at 01h 00m 01s.xml">
-      <configuration name="ValidatorTest.testFileLocationCheck" configurationId="JUnit" />
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 01m 28s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest_testFileLocationCheck - 2018.10.19 at 01h 01m 24s.xml">
-      <configuration name="ValidatorTest.testFileLocationCheck" configurationId="JUnit" />
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 04m 31s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ValidatorTest_testFileLocationCheck - 2018.10.19 at 01h 03m 58s.xml">
-      <configuration name="ValidatorTest.testFileLocationCheck" configurationId="JUnit" />
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 05m 22s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 07m 31s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 11m 41s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 14m 03s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ValidatorTest_testFileNameCheck - 2018.10.19 at 02h 15m 11s.xml">
+      <configuration name="ValidatorTest.testFileNameCheck" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -330,7 +345,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30472103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30472103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -411,8 +426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Validator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="240">
+          <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -421,8 +436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ValidatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state relative-caret-position="450">
+          <caret line="37" column="69" lean-forward="true" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

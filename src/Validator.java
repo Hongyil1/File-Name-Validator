@@ -82,16 +82,17 @@ public class Validator {
     }
 
     public boolean fileNameCheck(String fileName){
-        String[] splitList = fileName.split("\\.");
-        if(splitList.length != 2){
-            return false;
-        }else {
-            String[] nameList = splitList[0].split("_");
-            if(nameList.length == 3 || nameList.length == 4){
+        if(fileName.matches("^.+\\.\\w+$")){
+            String[] splitList = fileName.split("\\.");
+            String name = splitList[0];  // regular expression
+            if(name.matches("^[a-zA-Z]+_[A-Z]_[0-9]{8}$")
+                    || name.matches("^[a-zA-Z]+_[A-Z]_[0-9]{8}_[0-9]{2}$")){
                 return true;
             }else {
                 return false;
             }
+        }else {
+            return false;
         }
     }
 
