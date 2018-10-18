@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class Validator {
 
+    private String fileName;
+    private String fileExtension;
+    private String filePrefix;
+    private String filePortfolio;
+    private String fileSequence;
+    private String fileDate;
+
     public static void main(String args[]){
 
         // Read file location from console
@@ -12,25 +19,33 @@ public class Validator {
         String fileLocation = scanner.nextLine();
 
         while(!fileLocation.equals("exit")){
+
             // Check whether the file exists
             File f = new File(fileLocation.trim());
             if(f.exists() && !f.isDirectory()){
                 String fileName= f.getName();
+                Validator validator = new Validator(fileName);
+
                 // get file extension
                 String[] splitList = fileName.split("\\.");
+                validator.fileExtension = splitList[splitList.length - 1];
                 if(splitList.length != 2){
-                    System.out.printf("File '%s' failed validation.\n", fileName);
+                    System.out.printf("File '%s' failed validation.\n", validator.fileName);
                     System.out.printf("File format should be‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv'\n");
                 } else {
-                    System.out.println("splitList: " + Arrays.toString(splitList));
-                    String fileExtension = splitList[splitList.length - 1];
-                    String[] nameList = splitList[0].split("-");
+                    String[] nameList = splitList[0].split("_");
+                    System.out.println("nameList: " + Arrays.toString(nameList));
+                    if(nameList.length == 3 || nameList.length == 4){
+                        validator.filePrefix = nameList[0];
+                        validator.filePortfolio = nameList[1];
+                        validator.fileDate = nameList[2];
+                        if(nameList.length == 4) {validator.fileSequence = nameList[3];}
+                        System.out.println("prefix: " + validator.filePrefix + "; portfolio: " + validator.filePortfolio
+                                + "; date: " + validator.fileDate + "; seq: " + validator.fileSequence);
 
-                    if(Validator.extensionCheck(fileExtension)){
-                        System.out.println("correct file extension.");
-                    }else {
+                    } else {
                         System.out.printf("File '%s' failed validation.\n", fileName);
-                        System.out.printf("Invalid File format.Expected 'csv' found '%s'\n", fileExtension);
+                        System.out.printf("File format should be‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv'\n");
                     }
                 }
             } else {
@@ -41,11 +56,13 @@ public class Validator {
             System.out.println("Please input the file location or 'exit' to end the program: ");
             fileLocation = scanner.nextLine();
         }
-
     }
 
-    public static boolean extensionCheck(String fileExtension){
+    public Validator(String fileName){
+        this.fileName = fileName;
+    }
 
+    private boolean extensionCheck(String fileExtension){
         if(fileExtension.equals("csv")){
             return true;
         }else {
@@ -53,15 +70,19 @@ public class Validator {
         }
     }
 
-    public static boolean prefixCheck(String filePrefix){
+    private boolean prefixCheck(String filePrefix){
+        if(filePrefix.equals("Test")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean portfolioCheck(String filePorfolio){
         return false;
     }
 
-    public static boolean portfolioCheck(String filePorfolio){
-        return false;
-    }
-
-    public static boolean dateCheck(String date){
+    private boolean dateCheck(String date){
         return false;
     }
 
