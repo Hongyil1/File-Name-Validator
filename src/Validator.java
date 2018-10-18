@@ -15,18 +15,17 @@ public class Validator {
             // Check whether the file exists
             File f = new File(fileLocation.trim());
             if(f.exists() && !f.isDirectory()){
-                System.out.println("File exist.");
                 String fileName= f.getName();
-                System.out.println("File Name: " + fileName);
-
                 // get file extension
                 String[] splitList = fileName.split("\\.");
-                if(splitList.length <= 1){
-                    System.out.println("The file doesn't have extension.");
-                }else {
+                if(splitList.length != 2){
+                    System.out.printf("File '%s' failed validation.\n", fileName);
+                    System.out.printf("File format should be‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv'\n");
+                } else {
                     System.out.println("splitList: " + Arrays.toString(splitList));
-                    String fileExtension = splitList[splitList.length - 1]; // haven't finish
-                    System.out.println("fileExtension: " + fileExtension);
+                    String fileExtension = splitList[splitList.length - 1];
+                    String[] nameList = splitList[0].split("-");
+
                     if(Validator.extensionCheck(fileExtension)){
                         System.out.println("correct file extension.");
                     }else {
@@ -35,7 +34,7 @@ public class Validator {
                     }
                 }
             } else {
-                System.out.println("The file doesn't exist.");
+                System.out.println("The file doesn't exist or the given location is a folder.");
             }
 
             System.out.println();
@@ -52,6 +51,18 @@ public class Validator {
         }else {
             return false;
         }
+    }
+
+    public static boolean prefixCheck(String filePrefix){
+        return false;
+    }
+
+    public static boolean portfolioCheck(String filePorfolio){
+        return false;
+    }
+
+    public static boolean dateCheck(String date){
+        return false;
     }
 
 }
