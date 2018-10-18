@@ -110,4 +110,12 @@ public class Validator {
             return false;
         }
     }
+
+    private boolean sequenceCheck(String fileSequence){
+        if(fileSequence == null || fileSequence.matches("[0-9]{2}")){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
