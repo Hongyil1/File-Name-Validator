@@ -1,7 +1,6 @@
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -47,9 +46,24 @@ public class Validator {
                         if(nameList.length == 4) {validator.fileSequence = nameList[3];}
                         System.out.println("prefix: " + validator.filePrefix + "; portfolio: " + validator.filePortfolio
                                 + "; date: " + validator.fileDate + "; seq: " + validator.fileSequence);
+                        if(!validator.portfolioCheck(validator.filePortfolio)){
+                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                            System.out.printf("PortfolioCode should be A/B/C found %s.\n", validator.filePortfolio);
+                        }else if(!validator.dateCheck(validator.fileDate)){
+                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                            System.out.println("Valuation Date is not a valid date format 'ddmmyyyy'.\n");
+                        }else if(!validator.prefixCheck(validator.filePrefix)){
+                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                            System.out.printf("Prefix for the file should be 'Test' found '%s'.\n", validator.filePrefix);
+                        }else if(!validator.extensionCheck(validator.fileExtension)){
+                            System.out.printf("File '%s' failed validation.\n", validator.fileName);
+                            System.out.printf("Invalid File format.Expected 'csv' found '%s'.\n", validator.fileExtension);
+                        }else {
+                            System.out.printf("File '%s' passed validation.\n", validator.fileName);
+                        }
 
                     } else {
-                        System.out.printf("File '%s' failed validation.\n", fileName);
+                        System.out.printf("File '%s' failed validation.\n", validator.fileName);
                         System.out.printf("File format should be‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv'\n");
                     }
                 }
