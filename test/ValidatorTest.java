@@ -1,7 +1,5 @@
 import org.junit.Test;
 import java.io.File;
-import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
 public class ValidatorTest {
@@ -11,13 +9,13 @@ public class ValidatorTest {
         Validator val = new Validator("test");
         File f;
 
-        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test");
+        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\testCase");
         assertEquals(false, val.fileLocationCheck(f));
 
-        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\csv");
+        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\testCase\\csv");
         assertEquals(true, val.fileLocationCheck(f));
 
-        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\Test_A_07121987.csv");
+        f = new File("C:\\Users\\hylxm\\Desktop\\File-Name-Validator\\test\\testCase\\Test_A_07121987.csv");
         assertEquals(true, val.fileLocationCheck(f));
     }
 
@@ -30,7 +28,6 @@ public class ValidatorTest {
         assertEquals(false, val.fileNameCheck(".Test_A_07121987"));
         assertEquals(false, val.fileNameCheck("Test_A_07121987_01_aaa.csv"));
         assertEquals(false, val.fileNameCheck("Test_A.csv"));
-        assertEquals(false, val.fileNameCheck("Test_A_07121987_01_aaa.csv"));
         assertEquals(false, val.fileNameCheck("csv"));
         assertEquals(false, val.fileNameCheck("_TestA_07121987.csv"));
         assertEquals(false, val.fileNameCheck("Test_A_07121987_.csv"));

@@ -47,7 +47,7 @@ public class Validator {
                         System.out.printf("Prefix for the file should be 'Test' found '%s'.\n", validator.filePrefix);
                     }else if(!validator.extensionCheck(validator.fileExtension)){
                         System.out.printf("File '%s' failed validation.\n", validator.fileName);
-                        System.out.printf("Invalid File format.Expected 'csv' found '%s'.\n", validator.fileExtension);
+                        System.out.printf("Invalid File format. Expected 'csv' found '%s'.\n", validator.fileExtension);
                     } else if(!validator.sequenceCheck(validator.fileSequence)){
                         System.out.printf("File '%s' failed validation.\n", validator.fileName);
                         System.out.printf("Sequence number should be 2-digit number found '%s'.\n", validator.fileSequence);
@@ -82,11 +82,11 @@ public class Validator {
     }
 
     public boolean fileNameCheck(String fileName){
-        if(fileName.matches("^.+\\.\\w+$")){
+        if(fileName.matches("^.+\\.\\P{P}+$")){
             String[] splitList = fileName.split("\\.");
             String name = splitList[0];  // regular expression
-            if(name.matches("^[a-zA-Z]+_[A-Z]_[0-9]{8}$")
-                    || name.matches("^[a-zA-Z]+_[A-Z]_[0-9]{8}_[0-9]{2}$")){
+            if(name.matches("^\\P{P}+_\\P{P}+_\\P{P}+$")
+                    || name.matches("^\\P{P}+_\\P{P}+_\\P{P}+_\\P{P}+$")){
                 return true;
             }else {
                 return false;
