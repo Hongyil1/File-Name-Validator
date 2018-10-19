@@ -81,12 +81,22 @@ public class ValidatorTest {
         assertEquals(true, val.portfolioCheck("A"));
         assertEquals(true, val.portfolioCheck("B"));
         assertEquals(true, val.portfolioCheck("C"));
-        
+
     }
 
     @Test
     public void testDateCheck(){
+        Validator val = new Validator("test");
 
+        assertEquals(false, val.dateCheck(""));
+        assertEquals(false, val.dateCheck("0712198911"));
+        assertEquals(false, val.dateCheck("7121989"));
+        assertEquals(false, val.dateCheck("00121989"));
+        assertEquals(false, val.dateCheck("07131989"));
+        assertEquals(false, val.dateCheck("30021989"));
+        assertEquals(false, val.dateCheck("29022001"));
+        assertEquals(true, val.dateCheck("29022000"));
+        assertEquals(true, val.dateCheck("07121989"));
     }
 
     @Test
