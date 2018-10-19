@@ -45,12 +45,23 @@ public class ValidatorTest {
 
         assertEquals(false, val.extensionCheck("txt"));
         assertEquals(false, val.extensionCheck("测试"));
+        assertEquals(false, val.extensionCheck("00"));
+        assertEquals(false, val.extensionCheck(""));
+        assertEquals(false, val.extensionCheck("csv123"));
         assertEquals(true, val.extensionCheck("csv"));
     }
 
     @Test
     public void testPrefixCheck(){
+        Validator val = new Validator("test");
 
+        assertEquals(false, val.prefixCheck("test"));
+        assertEquals(false, val.prefixCheck(""));
+        assertEquals(false, val.prefixCheck("Hello"));
+        assertEquals(false, val.prefixCheck("测试"));
+        assertEquals(false, val.prefixCheck("123"));
+        assertEquals(true, val.prefixCheck("Test"));
+        
     }
 
     @Test
