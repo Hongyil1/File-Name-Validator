@@ -61,12 +61,27 @@ public class ValidatorTest {
         assertEquals(false, val.prefixCheck("测试"));
         assertEquals(false, val.prefixCheck("123"));
         assertEquals(true, val.prefixCheck("Test"));
-        
+
     }
 
     @Test
     public void testPortfolioCheck(){
+        Validator val = new Validator("test");
 
+        assertEquals(false, val.portfolioCheck("E"));
+        assertEquals(false, val.portfolioCheck("123"));
+        assertEquals(false, val.portfolioCheck("测试"));
+        assertEquals(false, val.portfolioCheck("AB"));
+        assertEquals(false, val.portfolioCheck("ABC"));
+        assertEquals(false, val.portfolioCheck("A1"));
+        assertEquals(false, val.portfolioCheck("a"));
+        assertEquals(false, val.portfolioCheck("b"));
+        assertEquals(false, val.portfolioCheck("c"));
+        assertEquals(false, val.portfolioCheck(""));
+        assertEquals(true, val.portfolioCheck("A"));
+        assertEquals(true, val.portfolioCheck("B"));
+        assertEquals(true, val.portfolioCheck("C"));
+        
     }
 
     @Test
