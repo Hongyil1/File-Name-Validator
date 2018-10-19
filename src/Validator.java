@@ -9,7 +9,7 @@ public class Validator {
     private String fileExtension;
     private String filePrefix;
     private String filePortfolio;
-    private String fileSequence;
+    private String fileSequence = null;
     private String fileDate;
     private static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 

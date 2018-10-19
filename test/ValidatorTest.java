@@ -101,7 +101,15 @@ public class ValidatorTest {
 
     @Test
     public void testSequenceCheck(){
+        Validator val = new Validator("test");
 
+        assertEquals(false, val.sequenceCheck(""));
+        assertEquals(false, val.sequenceCheck("1"));
+        assertEquals(false, val.sequenceCheck("000"));
+        assertEquals(false, val.sequenceCheck("ab"));
+        assertEquals(false, val.sequenceCheck("测试"));
+        assertEquals(true, val.sequenceCheck(null));
+        assertEquals(true,val.sequenceCheck("00"));
     }
 
 }
