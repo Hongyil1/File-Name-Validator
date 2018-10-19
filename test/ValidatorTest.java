@@ -41,7 +41,11 @@ public class ValidatorTest {
 
     @Test
     public void testExtensionCheck(){
+        Validator val = new Validator("test");
 
+        assertEquals(false, val.extensionCheck("txt"));
+        assertEquals(false, val.extensionCheck("测试"));
+        assertEquals(true, val.extensionCheck("csv"));
     }
 
     @Test
