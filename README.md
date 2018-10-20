@@ -39,7 +39,7 @@ For **Windows** user, you need to install **Git** first. Follow this [link](http
 java -jar File-Name-Validator.jar
 ```
 
-3. Input the file location to validate the file. Or input "exit" to end the program. The press "Enter".
+3. Input the file location to validate the file, or input "exit" to end the program. Then press "Enter".
 ```
 C:\Users\hylxm\Desktop\File-Name-Validator>java -jar File-Name-Validator.jar
 Please input the file location or 'exit' to end the program:
