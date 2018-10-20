@@ -31,8 +31,14 @@ public class ValidatorTest {
         assertEquals(false, val.fileNameCheck("csv"));
         assertEquals(false, val.fileNameCheck("_TestA_07121987.csv"));
         assertEquals(false, val.fileNameCheck("Test_A_07121987_.csv"));
+        assertEquals(false, val.fileNameCheck("A_B.b_C.D"));
+        assertEquals(false, val.fileNameCheck("1_2_3.567_"));
+        assertEquals(true, val.fileNameCheck("A_B_C.D"));
+        assertEquals(true, val.fileNameCheck("1a_2B_3C.4D"));
         assertEquals(true, val.fileNameCheck("Test_A_07121987_01.csv"));
         assertEquals(true, val.fileNameCheck("Test_A_07121987.csv"));
+
+
 
     }
 
