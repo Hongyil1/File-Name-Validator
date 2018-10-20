@@ -28,10 +28,30 @@ Where:
 
 
 ## How to use
+1. Clone this repository to your local computer:
+```
+git clone https://github.com/Hongyil1/NAO-Robot-Handwriting.git
+```
+For **Windows** user, you need to install **Git** first. Follow this [link](https://gitforwindows.org/).
 
+2. Run File-Name-Validator.jar using the following command:
+```
+java -jar File-Name-Validator.jar
+```
+
+3. Input the file location to validate the file. Or input "exit" to end the program. The press "Enter".
+```
+C:\Users\hylxm\Desktop\File-Name-Validator>java -jar File-Name-Validator.jar
+Please input the file location or 'exit' to end the program:
+.\test\testCase\Test_A_07121987.csv
+File 'Test_A_07121987.csv' passed validation.
+
+Please input the file location or 'exit' to end the program:
+exit
+```
 
 ## Unit Test
-
+For developers, there is a Unit test file named **ValidatorTest.java**. It's in the \File-Name-Validator\test\. Feel free to try any test case and welcome to report issues in my [GitHub](https://github.com/Hongyil1/File-Name-Validator/issues).
 
 ## Assumption & Enhencements
 
