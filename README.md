@@ -21,11 +21,10 @@ Where:
 | Hello_A_07121987.csv	| File ‘Hello_A_07121987.csv’ failed validation. Prefix for the file should be ‘Test’ found ‘Hello’. |
 | Test_A_07121987.txt	| File ‘Test_A_07121987.txt’ failed validation. Invalid File format.Expected ‘csv’ found ‘txt’. |
 | Test.txt	| File ‘Test.txt’ failed validation. File format should be ‘Test_<portfoliocode>_<ddmmyyyy>_<2digit-sequencenumber>.csv’ |
-  
-
-
 
 ## Prerequisites
+- Java
+- Junit4
 
 
 ## How to use
