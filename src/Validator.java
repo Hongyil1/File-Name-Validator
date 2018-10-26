@@ -15,12 +15,14 @@
  *  @Time 2018-10-20
  */
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-public class Validator {
+public class Validator extends JFrame{
 
     private String fileName;
     private String fileExtension;
@@ -31,6 +33,21 @@ public class Validator {
 
     // The format is used to check the date.
     private static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+    /* Java Swing */
+    // South area
+    private JLabel imageLable;
+
+    // North area
+    private JTextArea textArea;
+    private JScrollPane scrollPane;
+
+    // Central area
+    private JPanel middlePanel;
+    private JTextField textField;
+    private JButton buttonRun;
+    private JButton buttonHome;
+
 
     public static void main(String args[]){
 
@@ -107,6 +124,35 @@ public class Validator {
         this.fileName = fileName;
         // The parse method throw ParseException when the given input string is not in the specified format.
         Validator.format.setLenient(false);
+
+        imageLable = new JLabel(new ImageIcon("images\\jpmorgan.png"));
+        textArea = new JTextArea();
+        scrollPane = new JScrollPane(textArea);
+        middlePanel = new JPanel();
+        textField = new JTextField(30);
+        buttonRun = new JButton("Run");
+        buttonHome = new JButton("Home");
+
+        // Set the layout
+
+        // Set the component
+        middlePanel.add(textField);
+        middlePanel.add(buttonRun);
+        middlePanel.add(buttonHome);
+
+        // Add to JFrame
+        this.add(imageLable, BorderLayout.NORTH);
+        this.add(middlePanel); //?
+        this.add(scrollPane); //?
+
+        // Attribute
+        this.setSize(900, 600);
+        this.setTitle("File Name Validator");
+        this.setResizable(false);
+        this.setIconImage(new ImageIcon("images\\jpm_icon.png").getImage());
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+
     }
 
     /**
